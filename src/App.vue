@@ -8,7 +8,7 @@
         </div>
 
         <div class="mx-2 mb-5">
-          <button v-for="page in pages" :key="page.id" @click="setID = page.id" :class="`w-full text-sm font-semibold  rounded px-3 py-2 flex items-center justify-start ${setID === page.id ? 'bg-light text-white' : 'text-lightest'}`">
+          <button v-for="page in pages" :key="page.id" @click="setID = page.id" :class="`w-full text-sm font-semibold  rounded px-3 py-2 flex items-center justify-start ${setID === page.id ? 'bg-light  text-white' : ' text-lightest'}`">
             <i class="material-icons mr-3"> {{page.icon}} </i>
             <p> {{page.name}} </p>
           </button>
@@ -42,13 +42,13 @@
               <i class="material-icons text-white">keyboard_arrow_down</i>
             </div>
           </div>
-          <img src="singer1.png" class=" w-full" style="height: 90px" />
+          <img src="singer1.png" class=" w-full" style="height: 235px" />
         </div>
 
       </div>
 
       <!-- main content -->
-      <div class="w-full h-full relative">
+      <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
         <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between ">
             <div class="flex items-center">
@@ -68,6 +68,24 @@
                 <button @click="showDropdown = false" class="w-full text-sm py-2 text-lightest hover:text-white ">Log out</button>
               </div>
             </div>
+        </div>
+
+        <!-- cards -->
+        <div class="px-6 ">
+            <div class="px-6 py-3 flex align-items justify-between">
+              <h1 class="pl-2 text-2xl font-semibold text-white tracker-wider hover:underline ">Recently Played</h1>
+              <h2 class="pr-8 text-xs text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
+              <div class="w-full flex flex-wrap">
+                <div class="p-2 w-48">
+                  <div class="bg-light w-full h-auto p-5">
+                    <img src="" class="h-auto w-full shadow mb-2"/>
+                    <h1 class="text-sm font-semibold text-white tracking-wide"></h1>
+                    <h2 class="text-xs text-lightest tracking-wide "></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
         </div>
       </div>
 
