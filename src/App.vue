@@ -42,7 +42,7 @@
               <i class="material-icons text-white">keyboard_arrow_down</i>
             </div>
           </div>
-          <img src="singer1.png" class=" w-full" style="height: 235px" />
+          <img src="singer1.png" class=" w-full" style="height: 180px" />
         </div>
 
       </div>
@@ -50,7 +50,7 @@
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
-        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between ">
+        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-2xl">
             <div class="flex items-center">
               <button class="rounded-full bg-black w-8 h-8 text-white mr-3 "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
               <button class="rounded-full bg-black w-8 h-8 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
@@ -71,25 +71,59 @@
         </div>
 
         <!-- cards -->
-        <div class="px-6 ">
-            <div class="px-6 py-3 flex align-items justify-between">
-              <h1 class="pl-2 text-2xl font-semibold text-white tracker-wider hover:underline ">Recently Played</h1>
-              <h2 class="pr-8 text-xs text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
-              <div class="w-full flex flex-wrap">
-                <div class="p-2 w-48">
-                  <div class="bg-light w-full h-auto p-5">
-                    <img src="" class="h-auto w-full shadow mb-2"/>
-                    <h1 class="text-sm font-semibold text-white tracking-wide"></h1>
-                    <h2 class="text-xs text-lightest tracking-wide "></h2>
-                  </div>
+
+        <div class="px-6 py-3">
+            <div class="pl-2">
+              <h1 class=" text-2xl font-semibold text-white tracker-wider hover:underline pb-3 ">The Top Podcasts of 2021</h1>
+              <h2 class="text-sm text-lightest" >Our favorite new shows of the year</h2>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="custom in customs" :key="custom.title" class="p-2 w-48">
+                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                  <img :src="`${ custom.src }`" class="h-36 w-full shadow mb-2"/>
+                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ custom.title }}</h1>
+                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
                 </div>
               </div>
-            </div>
-          
+            <div/>
+          </div>
         </div>
-      </div>
 
+        <div class="px-6 py-3">
+            <div class="pl-2">
+              <h1 class=" text-2xl font-semibold text-white tracker-wider hover:underline pb-3">Made for Tobisam</h1>
+              <h2 class="text-sm text-lightest" >Get better recommendations the more you listen.</h2>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="custom in customs" :key="custom.title" class="p-2 w-48">
+                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                  <img :src="`${ custom.src }`" class="h-36 w-full shadow mb-2"/>
+                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ custom.title }}</h1>
+                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
+                </div>
+              </div>
+            <div/>
+          </div>
+        </div>
+
+        <div class="px-6 py-3">
+            <div class="flex align-items justify-between">
+              <h1 class="pl-2 text-2xl font-semibold text-white tracker-wider hover:underline ">Recently Played</h1>
+              <h2 class="pr-8 pt-4 text-xs text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="recent in recents" :key="recent.title" class="p-2 w-48">
+                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                  <img :src="`${ recent.src }`" class="h-36 w-full shadow mb-2"/>
+                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ recent.title }}</h1>
+                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ recent.artist}}</h2>
+                </div>
+              </div>
+            <div/>
+          </div>
+        </div>
     </div>
+  </div>
     <!-- play bar -->
     <div class="w-full bg-light" style="height: 12vh">
 
@@ -120,7 +154,25 @@ export default {
         {name: 'Classic Road Trip SOngs'},
         {name: 'Lana Del Rey Radio'}
       ],
-      showDropdown: false
+      showDropdown: false,
+      recents: [
+        {src: 'song1.png', title: 'Daily Mix 1', artist: 'By Spotify'},
+        {src: 'song2.jpeg', title: 'Kiss me ', artist: 'By Yinka'},
+        {src: 'singer3.png', title: 'Daily food', artist: 'By Spotify'},
+        {src: 'playing.png', title: 'My baby bad', artist: 'By Spotify'},
+        {src: 'singer1.png', title: 'Life is good', artist: 'By Billie'},
+        {src: 'singer2.png', title: 'Daily Mix 3', artist: 'By Frank'},
+        {src: 'artist1.jpg', title: 'God Ever 3', artist: 'By JOhn H'}
+      ],
+      customs: [
+        {src: 'artist10.jpg', title: 'Its God', artist: 'By Spotify'},
+        {src: 'artist6.jpg', title: 'Oner of life', artist: 'By Yinka'},
+        {src: 'artist1.jpg', title: 'Daily bread', artist: 'By Spotify'},
+        {src: 'artist2.jpg', title: 'My baby', artist: 'By Spotify'},
+        {src: 'artist3.jpg', title: 'My baby good', artist: 'By Billie'},
+        {src: 'artist4.jpg', title: 'Baddo 3', artist: 'By Frank'},
+        {src: 'artist5.jpg', title: 'God', artist: 'By JOhn H'}
+      ]
     }
   },
  
