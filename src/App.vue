@@ -1,5 +1,6 @@
 <template>
   <div  class="bg-dark  h-screen">
+    <preloader/>
     <div class="flex" style="height: 88vh">
       <!-- Side nav -->
       <div class="w-56 bg-black h-full flex-none">
@@ -50,13 +51,13 @@
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
-        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-2xl">
+        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-xl">
             <div class="flex items-center">
               <button class="rounded-full bg-black w-8 h-8 text-white mr-3 "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
               <button class="rounded-full bg-black w-8 h-8 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
             </div>
             <div class="relative">
-              <button @click="showDropdown = true" class="bg-light rounded-full py-1 px-2 flex items-center ">
+              <button @click="toggleDropdown" class="bg-light rounded-full py-1 px-2 flex items-center ">
                 <img src="singer2.png" class="h-6 w-6 mr-2 rounded-full" />
                 <p class="text-white font-semibold text-xs mr-3 ">Tobi Samuel</p>
                 <i v-if="showDropdown === false" class="material-icons text-white">arrow_drop_down</i>
@@ -134,9 +135,12 @@
 
 <script>
 
-
+import Preloader from './components/Preloader.vue'
 
 export default {
+  components: {
+    Preloader
+  },
   name: 'App',
   data() {
     return {
@@ -151,7 +155,7 @@ export default {
         {name: 'zhu'},
         {name: 'All New Indie'},
         {name: 'Mellow'},
-        {name: 'Classic Road Trip SOngs'},
+        {name: 'Classic Road Trip Songs'},
         {name: 'Lana Del Rey Radio'}
       ],
       showDropdown: false,
@@ -175,6 +179,11 @@ export default {
       ]
     }
   },
+  methods: {
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown;
+    }
+  }
  
 
 
