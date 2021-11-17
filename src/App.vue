@@ -3,126 +3,151 @@
     <preloader/>
     <div class="flex" style="height: 88vh">
       <!-- Side nav -->
-      <div class="w-56 bg-black h-full flex-none">
-        <div class="p-6">
-          <img src="Spotify_Logo_Black.png" class="h-10" style="filter: brightness(0) invert(1);" />
+      <div class="side-bar bg-black h-full flex-none">
+        <div class="p-8">
+          <img src="Spotify_Logo_Black.png" class="logo" style="filter: brightness(0) invert(1);" />
         </div>
 
-        <div class="mx-2 mb-5">
-          <button v-for="page in pages" :key="page.id" @click="setID = page.id" :class="`w-full text-sm font-semibold  rounded px-3 py-2 flex items-center justify-start ${setID === page.id ? 'bg-light  text-white' : ' text-lightest'}`">
-            <i class="material-icons mr-3"> {{page.icon}} </i>
-            <p> {{page.name}} </p>
+        <div class="mx-5 mb-10">
+          <button v-for="page in pages" :key="page.id" @click="setID = page.id" :class="`w-full rounded page px-3 py-2 flex items-center justify-start ${setID === page.id ? 'bg-light  text-white' : ' text-lightest'}`">
+            <i class="material-icons mr-3 text-4xl"> {{page.icon}} </i>
+            <p class=""> {{page.name}} </p>
           </button>
         </div>
 
         <div class="mx-5">
-            <h1 class="mb-3 text-xs text-lightest tracking-widest uppercase">playlists</h1>
-            <button class="flex items-center justify-start opacity-75 hover:opacity-100 mb-2">
-              <img src="addBox.png" class="h-8 w-8 mr-3"/>
-              <p class="text-xs text-white font-semibold">Create Playlist</p>
+            <h1 class="mb-5 mx-4 text-sm text-lightest tracking-widest uppercase">playlists</h1>
+            <button class="flex mx-3 items-center justify-start opacity-75 hover:opacity-100 mb-5">
+              <img src="addBox.png" class="h-10 w-10 mr-5"/>
+              <p class="text-lg text-white font-semibold">Create Playlist</p>
             </button>
-            <button class="flex items-center justify-start opacity-75 hover:opacity-100">
-              <img src="like.png" class="h-8 w-8 mr-3" style="filter: brightness(0) invert(1);"/>
-              <p class="text-xs text-white font-semibold">Liked Songs</p>
+            <button class="flex mx-3 items-center justify-start opacity-75 hover:opacity-100">
+              <img src="like.png" class="mx-1 h-8 w-8 mr-5" style="filter: brightness(0) invert(1);"/>
+              <p class="text-lg text-white font-semibold">Liked Songs</p>
             </button>
-            <div class="h-px w-full bg-light my-3"></div>
+            <div class="h-px w-full bg-light my-6 mx-4"></div>
         </div>
 
-        <div class="mx-5">
-          <div class="w-full h-10 overflow-y-scroll ">
-            <p v-for="album in albums" :key="album.name" class="text-lightest hover:text-white text-sm py-1"> {{ album.name}} </p>
-          </div>
-          <button class="flex items-center justify-start text-lightest hover:text-white py-2">
-            <i class="material-icons mr-3 rounded-full border border-lightest text-xs">arrow_downward</i>
-            <p class="text-sm font-semibold">Install App</p>
-          </button>
-        </div>
-        <div class="relative pt-4 ">
-          <div class="w-full h-full flex justify-end items-start opacity-0 hover:opacity-100 absolute p-2">
-            <div class="bg-black rounded-full h-6 w-6">
-              <i class="material-icons text-white">keyboard_arrow_down</i>
+        <div class="mx-9">
+          <div class="w-full h-24 overflow-y-scroll ">
+            <div v-for="album in albums" :key="album.name" class="flex items-center justify-start text-xl">
+              <p  class="text-lightest hover:text-white py-2 mr-3"> {{ album.name}} </p>
+              <i class="material-icons  text-lg text-white ">{{ album.icon }}</i>
             </div>
           </div>
-          <img src="singer1.png" class=" w-full" style="height: 180px" />
         </div>
+        <button class="flex items-center justify-start text-lightest hover:text-white py-5 mx-9 my-24">
+            <i class="material-icons mr-3 text-2xl">downloading</i>
+            <p class="text-lg font-semibold">Install App</p>
+        </button>
 
       </div>
 
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
-        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-xl">
-            <div class="flex items-center">
-              <button class="rounded-full bg-black w-8 h-8 text-white mr-3 "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
-              <button class="rounded-full bg-black w-8 h-8 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
+        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-lg">
+            <div class="flex items-center mx-4">
+              <button class="rounded-full bg-black w-12 h-12 text-white mr-5  "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
+              <button class="rounded-full bg-black w-12 h-12 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
             </div>
             <div class="relative">
-              <button @click="toggleDropdown" class="bg-light rounded-full py-1 px-2 flex items-center ">
-                <img src="singer2.png" class="h-6 w-6 mr-2 rounded-full" />
-                <p class="text-white font-semibold text-xs mr-3 ">Tobi Samuel</p>
+              <button @click="toggleDropdown" class="bg-black rounded-full py-2 px-1 flex items-center ">
+                <img src="singer2.png" class="h-9 w-9 mr-2 rounded-full" />
+                <p class="text-white font-semibold text-lg mr-3 ">Tobisam</p>
                 <i v-if="showDropdown === false" class="material-icons text-white">arrow_drop_down</i>
                 <i v-if="showDropdown === true" class="material-icons text-white">arrow_drop_up</i>
 
               </button>
-              <div v-if="showDropdown === true" class="absolute bg-light w-full rounded mt-1">
-                <button  @click="showDropdown = false" class="w-full text-sm py-2 text-lightest hover:text-white border-b border-white opacity-50 hover:opacity-100 ">Account</button>
-                <button @click="showDropdown = false" class="w-full text-sm py-2 text-lightest hover:text-white ">Log out</button>
+              <div v-if="showDropdown === true" class="profile absolute bg-light w-64 mr-14 rounded mt-3">
+                <button  @click="showDropdown = false" class="w-full flex items-center justify-between text-lg px-6 py-3 text-white hover:  hover: ">
+                  <p>Account</p>
+                  <i class="material-icons text-2xl">launch</i>
+                </button>
+                <button  @click="showDropdown = false" class="w-full flex items-center justify-items-start text-lg px-6 py-3 text-white hover:  hover: ">Profile</button>
+                <button  @click="showDropdown = false" class="w-full flex items-center justify-between text-lg px-6 py-3 text-white hover:  hover: ">
+                  <p>Upgrade to Premium</p>
+                  <i class="material-icons text-2xl">launch</i>
+                </button>
+                <button  @click="showDropdown = false" class="w-full flex items-center justify-items-start text-lg px-6 py-3 text-white hover:  hover: ">Log out</button>
+                
               </div>
             </div>
         </div>
 
         <!-- cards -->
 
-        <div class="px-6 py-3">
+        <div class="card px-6 py-3">
             <div class="pl-2">
-              <h1 class=" text-2xl font-semibold text-white tracker-wider hover:underline pb-3 ">The Top Podcasts of 2021</h1>
-              <h2 class="text-sm text-lightest" >Our favorite new shows of the year</h2>
+              <h1 class=" text-3xl font-semibold text-white tracker-wider hover:underline pb-3 ">The Top Podcasts of 2021</h1>
+              <h2 class="text-lg text-lightest" >Our favorite new shows of the year</h2>
             </div>
-            <div class="w-full flex flex-wrap">
-              <div v-for="custom in customs" :key="custom.title" class="p-2 w-48">
-                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
-                  <img :src="`${ custom.src }`" class="h-36 w-full shadow mb-2"/>
-                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ custom.title }}</h1>
-                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
+            <div class="w-full parent">
+              <div v-for="recent in recents" :key="recent.title" class="p-2 w-48 child md:w-60 md:h-auto">
+                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                  <img :src="`${ recent.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
+                  <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ recent.title }}</h1>
+                  <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ recent.artist}}</h2>
                 </div>
               </div>
             <div/>
           </div>
         </div>
 
-        <div class="px-6 py-3">
+        <div class="card px-6 py-3">
             <div class="pl-2">
-              <h1 class=" text-2xl font-semibold text-white tracker-wider hover:underline pb-3">Made for Tobisam</h1>
-              <h2 class="text-sm text-lightest" >Get better recommendations the more you listen.</h2>
+              <h1 class=" text-3xl font-semibold text-white tracker-wider hover:underline ">Made For Tobisam</h1>
             </div>
-            <div class="w-full flex flex-wrap">
-              <div v-for="custom in customs" :key="custom.title" class="p-2 w-48">
-                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
-                  <img :src="`${ custom.src }`" class="h-36 w-full shadow mb-2"/>
-                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ custom.title }}</h1>
-                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
+            <div class="w-full parent">
+              <div v-for="custom in customs" :key="custom.title" class="p-2  w-48 child md:w-60 md:h-auto">
+                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                  <img :src="`${ custom.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
+                  <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ custom.title }}</h1>
+                  <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
                 </div>
               </div>
             <div/>
           </div>
         </div>
 
-        <div class="px-6 py-3">
-            <div class="flex align-items justify-between">
-              <h1 class="pl-2 text-2xl font-semibold text-white tracker-wider hover:underline ">Recently Played</h1>
-              <h2 class="pr-8 pt-4 text-xs text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
+        <div class="card px-6 py-3">
+            <div class="pl-2">
+              <h1 class=" text-3xl font-semibold text-white tracker-wider hover:underline pb-3 ">Appears</h1>
+              <h2 class="text-lg text-lightest" >Our favorite new shows of the year</h2>
             </div>
-            <div class="w-full flex flex-wrap">
-              <div v-for="recent in recents" :key="recent.title" class="p-2 w-48">
-                <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
-                  <img :src="`${ recent.src }`" class="h-36 w-full shadow mb-2"/>
-                  <h1 class="text-sm font-semibold text-white tracking-wide">{{ recent.title }}</h1>
-                  <h2 class="text-xs text-lightest tracking-wide pb-5">{{ recent.artist}}</h2>
+            <div class="w-full parent">
+              <div v-for="single in singles" :key="single.title" class="p-2 w-48 child md:w-60 md:h-auto">
+                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                  <img :src="`${ single.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
+                  <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ single.title }}</h1>
+                  <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ single.artist}}</h2>
                 </div>
               </div>
             <div/>
           </div>
         </div>
+
+        <div class="card px-6 py-3">
+            <div class="pl-2">
+              <h1 class=" text-3xl font-semibold text-white tracker-wider hover:underline pb-3 ">More of what you like</h1>
+              <h2 class="text-lg text-lightest" >Hear a little bit of everything you love.</h2>
+            </div>
+            <div class="w-full parent-appear">
+              <div v-for="appear in appears" :key="appear.title" class="p-2 w-48 child-appear md:w-72 md:h-auto">
+                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                  <img :src="`${ appear.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
+                  <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ appear.title }}</h1>
+                  <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ appear.artist}}</h2>
+                </div>
+              </div>
+            <div/>
+          </div>
+        </div>
+
+        
+
+        
+
     </div>
   </div>
     <!-- play bar -->
@@ -151,37 +176,62 @@ export default {
       ],
       setID: 'home',
       albums: [
-        {name: 'drive'},
-        {name: 'zhu'},
-        {name: 'All New Indie'},
-        {name: 'Mellow'},
-        {name: 'Classic Road Trip Songs'},
-        {name: 'Lana Del Rey Radio'}
+        {name: 'drive', icon: 'headphones'},
+        {name: 'zhu', icon: 'headphones'},
+        {name: 'All New Indie', icon: 'headphones'},
+        {name: 'Mellow', icon: 'headphones'},
+        {name: 'Classic Road Trip Songs', icon: 'headphones'},
+        {name: 'Jolly Radio', icon: 'headphones'},
+        {name: 'Lana Del Rey Radio', icon: 'headphones'},
+        {name: 'B. Bush 1997 Radio', icon: 'headphones'},
+        {name: 'L.Havard 2009 Radio', icon: 'headphones'},
+        {name: 'Lana 1999 Radio', icon: 'headphones'},
+        {name: 'Lana Huston Radio', icon: 'headphones'},
+        {name: 'Lana Del Geoge', icon: 'headphones'},
+        {name: 'Fidelity Radio', icon: 'headphones'},
+        {name: 'D. Lang Film', icon: 'headphones'}
       ],
       showDropdown: false,
       recents: [
         {src: 'song1.png', title: 'Daily Mix 1', artist: 'By Spotify'},
         {src: 'song2.jpeg', title: 'Kiss me ', artist: 'By Yinka'},
         {src: 'singer3.png', title: 'Daily food', artist: 'By Spotify'},
-        {src: 'playing.png', title: 'My baby bad', artist: 'By Spotify'},
+        {src: 'playing.png', title: 'My baby bad', artist: 'By Spotify'}
+      ],
+      singles: [
         {src: 'singer1.png', title: 'Life is good', artist: 'By Billie'},
         {src: 'singer2.png', title: 'Daily Mix 3', artist: 'By Frank'},
-        {src: 'artist1.jpg', title: 'God Ever 3', artist: 'By JOhn H'}
+        {src: 'artist1.jpg', title: 'God Ever 3', artist: 'By JOhn H'},
+        {src: 'artist2.jpg', title: 'My baby', artist: 'By Spotify'}
       ],
       customs: [
         {src: 'artist10.jpg', title: 'Its God', artist: 'By Spotify'},
         {src: 'artist6.jpg', title: 'Oner of life', artist: 'By Yinka'},
         {src: 'artist1.jpg', title: 'Daily bread', artist: 'By Spotify'},
-        {src: 'artist2.jpg', title: 'My baby', artist: 'By Spotify'},
-        {src: 'artist3.jpg', title: 'My baby good', artist: 'By Billie'},
+        {src: 'artist3.jpg', title: 'My baby good', artist: 'By Billie'}
+      ],
+      appears: [
         {src: 'artist4.jpg', title: 'Baddo 3', artist: 'By Frank'},
         {src: 'artist5.jpg', title: 'God', artist: 'By JOhn H'}
       ]
     }
   },
+  mounted(){
+    window.addEventListener('click', this.close)
+  },
+
+  beforeUnmount(){
+    window.removeEventListener('click', this.close)
+  },
   methods: {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
+    },
+
+    close(e) {
+      if(!this.$el.contains(e.target)) {
+        this.showDropdown = false
+      }
     }
   }
  
@@ -190,7 +240,42 @@ export default {
 }
 </script>
 
-<style src="./assets/tailwind.css">
+<style scoped>
+.side-bar{
+  width: 270px
+}
+.side-bar .logo {
+  height: 40px;
+}
+.side-bar .page{
+  font-size: 12px;
+  font-weight: 600; 
+}
+
+.card .parent{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 0 -10px;
+}
+.card .parent .child{
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  flex-grow: 1;
+}
+.card .parent-appear{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 0 -10px;
+}
+.card .parent .child-appear{
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  flex-grow: 1;
+}
+.profile{
+  right: -40px;
+}
+
 
 </style>
 
