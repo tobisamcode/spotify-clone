@@ -46,7 +46,7 @@
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
-        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-lg">
+        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-lg z-50">
             <div class="flex items-center mx-4">
               <button class="rounded-full bg-black w-12 h-12 text-white mr-5  "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
               <button class="rounded-full bg-black w-12 h-12 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
@@ -83,7 +83,12 @@
               <h2 class="text-lg text-lightest" >Our favorite new shows of the year</h2>
             </div>
             <div class="w-full parent">
-              <div v-for="recent in recents" :key="recent.title" class="p-2 w-48 child md:w-60 md:h-auto">
+              <div v-for="recent in recents" :key="recent.title" class="p-2 w-48 child md:w-60 md:h-auto relative">
+                <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                  <div class="bg-green rounded-full h-12 w-12 flex item-center p-1 justify-center">
+                    <i class="material-icons text-white text-4xl">play_arrow</i>
+                  </div>
+                </div>
                 <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ recent.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ recent.title }}</h1>
@@ -99,7 +104,12 @@
               <h1 class=" text-3xl font-semibold text-white tracker-wider hover:underline ">Made For Tobisam</h1>
             </div>
             <div class="w-full parent">
-              <div v-for="custom in customs" :key="custom.title" class="p-2  w-48 child md:w-60 md:h-auto">
+              <div v-for="custom in customs" :key="custom.title" class="p-2  w-48 child md:w-60 md:h-auto relative">
+                <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                  <div class="bg-green rounded-full h-12 w-12 flex item-center p-1 justify-center">
+                    <i class="material-icons text-white text-4xl">play_arrow</i>
+                  </div>
+                </div>
                 <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ custom.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ custom.title }}</h1>
@@ -116,7 +126,12 @@
               <h2 class="text-lg text-lightest" >Our favorite new shows of the year</h2>
             </div>
             <div class="w-full parent">
-              <div v-for="single in singles" :key="single.title" class="p-2 w-48 child md:w-60 md:h-auto">
+              <div v-for="single in singles" :key="single.title" class="p-2 w-48 child md:w-60 md:h-auto relative">
+                <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                  <div class="bg-green rounded-full h-12 w-12 flex item-center p-1 justify-center">
+                    <i class="material-icons text-white text-4xl">play_arrow</i>
+                  </div>
+                </div>
                 <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ single.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ single.title }}</h1>
@@ -133,7 +148,12 @@
               <h2 class="text-lg text-lightest" >Hear a little bit of everything you love.</h2>
             </div>
             <div class="w-full parent-appear">
-              <div v-for="appear in appears" :key="appear.title" class="p-2 w-48 child-appear md:w-72 md:h-auto">
+              <div v-for="appear in appears" :key="appear.title" class="p-2 w-48 child-appear md:w-72 md:h-auto relative">
+                <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                  <div class="bg-green rounded-full h-12 w-12 flex item-center p-1 justify-center">
+                    <i class="material-icons text-white text-4xl">play_arrow</i>
+                  </div>
+                </div>
                 <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ appear.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ appear.title }}</h1>
