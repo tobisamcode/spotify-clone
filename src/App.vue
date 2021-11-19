@@ -288,9 +288,9 @@ export default {
       } 
       
         
-      audio = new Audio(song);
-      audio.pause;
-      audio.currentTime = 0;
+      // audio = new Audio(song);
+      // audio.pause;
+      // audio.currentTime = 0;
       
       this.pause = !this.pause;
 
