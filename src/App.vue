@@ -89,7 +89,7 @@
                     <i class="material-icons text-white text-4xl">play_arrow</i>
                   </div>
                 </div>
-                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                <div class="bg-light w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ recent.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ recent.title }}</h1>
                   <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ recent.artist}}</h2>
@@ -110,7 +110,7 @@
                     <i class="material-icons text-white text-4xl">play_arrow</i>
                   </div>
                 </div>
-                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                <div class="bg-light w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ custom.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ custom.title }}</h1>
                   <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ custom.artist}}</h2>
@@ -132,7 +132,7 @@
                     <i class="material-icons text-white text-4xl">play_arrow</i>
                   </div>
                 </div>
-                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                <div class="bg-light w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
                   <img :src="`${ single.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ single.title }}</h1>
                   <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ single.artist}}</h2>
@@ -154,7 +154,7 @@
                     <i class="material-icons text-white text-4xl">play_arrow</i>
                   </div>
                 </div>
-                <div class="bg-dark w-full h-full p-5 rounded-lg shadow hover:bg-light transition duration-500 ">
+                <div class="bg-dark w-full h-full p-5 rounded-lg shadow transition duration-500 ">
                   <img :src="`${ appear.src }`" class="h-36 w-full rounded transition-shadow shadow mb-2 md:h-60"/>
                   <h1 class="text-sm md:text-xl font-semibold text-white tracking-wide">{{ appear.title }}</h1>
                   <h2 class="text-xs md:text-sm text-lightest tracking-wide pb-5">{{ appear.artist}}</h2>
