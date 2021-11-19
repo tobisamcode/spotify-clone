@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <button class="flex items-center justify-start text-lightest hover:text-white py-5 mx-9 my-24">
+        <button class="flex items-center justify-start text-lightest hover:text-white py-5 mx-9 my-4">
             <i class="material-icons mr-3 text-2xl">downloading</i>
             <p class="text-lg font-semibold">Install App</p>
         </button>
@@ -163,45 +163,42 @@
             <div/>
           </div>
         </div>
-
-        
-
-        
-
     </div>
   </div>
     <!-- play bar -->
     <div class="w-full flex items-center justify-between px-6 bg-light border-t border-dark shadow-2xl" style="height: 12vh">
-      <div class="flex items-center">
+      <div class="flex items-center" style="width: 25%">
         <div>
-          <h1 class="text-xl text-white tracking-wide mb-1">My baby bad and good - Feyisayo</h1>
+          <h1 class="text-lg text-white tracking-wide">My baby bad and good - Feyisayo</h1>
           <h2 class="text-sm text-lightest tracking-wide">The Carin' Singer</h2>
         </div>
         <i class="material-icons text-xl text-green mx-5">favorite</i>
         <i class="material-icons text-xl text-lightest ">picture_in_picture_alt</i>
       </div>
 
-      <div class="flex flex-col justify-center  items-center" style="width: 45%">
+      <div class="flex flex-col justify-center -mt-1 items-center" style="width: 50%">
         <div class="flex items-center">
           <button class=" text-lightest hover:text-white mx-6"><i class="material-icons text-lg">shuffle</i></button>
           <button class="text-lg text-lightest hover:text-white"><i class="material-icons text-lg">skip_previous</i></button>
-          <button class="text-lg text-lightest hover:text-white mx-6"><i class=" text-4xl material-icons">play_circle_outline</i></button>
+          <button @click.prevent="playSong('Fave.mp3')" class="text-lg text-lightest hover:text-white mx-6"><i v-if="pause === false" class="text-4xl material-icons">play_circle_outline</i><i v-if="pause === true" class=" text-4xl material-icons">pause</i></button>
           <button class="text-lg text-lightest hover:text-white"><i class="material-icons text-lg">skip_next</i></button>
           <button class="text-lg text-lightest hover:text-white mx-6"><i class="material-icons text-lg">repeat</i></button>
         </div>
-        <div class="w-full">
-          <div class="w-full h-1 bg-gray-500 rounded-full mt-4 flex items-center">
+        <div class="flex items-center" style="width: 75%">
+          <p class="text-sm text-lightest mr-1">0:28</p>
+          <div class="w-full h-1 bg-gray-500 rounded-full flex items-center">
             <div class="h-1 rounded-full bg-green" style="width: 18%"></div>
-            <div class="h-3 w-3 bg-white rounded-full -nl-1 shadow"></div>
+            <div class="h-3 w-3 bg-white rounded-full -ml-1 shadow"></div>
           </div>
+          <p class="text-sm text-lightest ml-1">2:58</p>
         </div>
       </div>
 
-      <div class="flex items-center">
+      <div class="flex items-center justify-end" style="width: 25%">
         <i class="material-icons text-lightest hover:text-white">playlist_play</i>
         <i class="material-icons text-xl mx-3 text-lightest hover:text-white">important_devices</i>
         <i class="material-icons text-xl text-lightest hover:text-white">volume_up</i>
-        <div class="w-28 ml-1 bg-lightest rounded-full h-1"></div>
+        <div class="w-28 ml-1 bg-lightest rounded-full h-1 hover:bg-green"></div>
       </div>
     </div>
     
@@ -263,7 +260,8 @@ export default {
       appears: [
         {src: 'artist4.jpg', title: 'Baddo 3', artist: 'By Frank'},
         {src: 'artist5.jpg', title: 'God', artist: 'By JOhn H'}
-      ]
+      ],
+      pause: false
     }
   },
   mounted(){
@@ -282,6 +280,20 @@ export default {
       if(!this.$el.contains(e.target)) {
         this.showDropdown = false
       }
+    },
+    playSong(song) {
+      if (song){
+        var audio = new Audio(song);
+        audio.play();
+      } 
+      
+        
+      audio = new Audio(song);
+      audio.pause;
+      audio.currentTime = 0;
+      
+      this.pause = !this.pause;
+
     }
   }
  
