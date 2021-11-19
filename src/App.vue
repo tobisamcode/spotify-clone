@@ -46,7 +46,7 @@
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll ">
         <!-- header -->
-        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-lg z-50">
+        <div class="w-full sticky top-0 px-6 py-4 flex items-center justify-between bg-purple shadow-lg z-10">
             <div class="flex items-center mx-4">
               <button class="rounded-full bg-black w-12 h-12 text-white mr-5  "><i class="material-icons text-3xl">keyboard_arrow_left</i></button>
               <button class="rounded-full bg-black w-12 h-12 text-white "><i class="material-icons text-3xl">keyboard_arrow_right</i></button>
@@ -171,8 +171,38 @@
     </div>
   </div>
     <!-- play bar -->
-    <div class="w-full bg-light" style="height: 12vh">
+    <div class="w-full flex items-center justify-between px-6 bg-light border-t border-dark shadow-2xl" style="height: 12vh">
+      <div class="flex items-center">
+        <div>
+          <h1 class="text-xl text-white tracking-wide mb-1">My baby bad and good - Feyisayo</h1>
+          <h2 class="text-sm text-lightest tracking-wide">The Carin' Singer</h2>
+        </div>
+        <i class="material-icons text-xl text-green mx-5">favorite</i>
+        <i class="material-icons text-xl text-lightest ">picture_in_picture_alt</i>
+      </div>
 
+      <div class="flex flex-col justify-center  items-center" style="width: 45%">
+        <div class="flex items-center">
+          <button class=" text-lightest hover:text-white mx-6"><i class="material-icons text-lg">shuffle</i></button>
+          <button class="text-lg text-lightest hover:text-white"><i class="material-icons text-lg">skip_previous</i></button>
+          <button class="text-lg text-lightest hover:text-white mx-6"><i class=" text-4xl material-icons">play_circle_outline</i></button>
+          <button class="text-lg text-lightest hover:text-white"><i class="material-icons text-lg">skip_next</i></button>
+          <button class="text-lg text-lightest hover:text-white mx-6"><i class="material-icons text-lg">repeat</i></button>
+        </div>
+        <div class="w-full">
+          <div class="w-full h-1 bg-gray-500 rounded-full mt-4 flex items-center">
+            <div class="h-1 rounded-full bg-green" style="width: 18%"></div>
+            <div class="h-3 w-3 bg-white rounded-full -nl-1 shadow"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <i class="material-icons text-lightest hover:text-white">playlist_play</i>
+        <i class="material-icons text-xl mx-3 text-lightest hover:text-white">important_devices</i>
+        <i class="material-icons text-xl text-lightest hover:text-white">volume_up</i>
+        <div class="w-28 ml-1 bg-lightest rounded-full h-1"></div>
+      </div>
     </div>
     
   </div>
