@@ -1,4 +1,4 @@
-# sportify
+# spotify
 
 ## Project setup
 ```
